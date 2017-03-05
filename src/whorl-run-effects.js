@@ -2,6 +2,10 @@
  * Runs side-effects
  */
 function runEffects (whorl) {
+  if (!(whorl.functions.runEffects instanceof Function)) {
+    return whorl
+  }
+
   const effect = whorl.functions.runEffects(whorl.message)
 
   if (effect) {
