@@ -10,7 +10,7 @@ const model = { count: 0 }
 function NoOp() {}
 
 const app = whorl(model)
-app.run(new NoOp())
+app.send(new NoOp())
 ```
 
 Its behavior can be altered and enhanced by adding `behaviors`. Whorl has three `behaviors` bundled:

@@ -7,7 +7,7 @@ class Whorl {
     this.runBehaviors = compose(...behaviors)
   }
 
-  run (message) {
+  send (message) {
     this.message = message
 
     const app = this.runBehaviors(this)

@@ -1,5 +1,5 @@
 /**
- * Logs the Whorl instance everytime a message is run.
+ * Logs the Whorl instance everytime a message is sent through.
  */
 function log (whorl) {
   console.log('MESSAGE:', whorl.message)

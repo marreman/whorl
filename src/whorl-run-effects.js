@@ -1,5 +1,5 @@
 /**
- * Runs sid
+ * Runs side-effects
  */
 function runEffects (whorl) {
   const effect = whorl.functions.runEffects(whorl.message)
@@ -7,7 +7,7 @@ function runEffects (whorl) {
   if (effect) {
     const handle = setTimeout(() => {
       clearTimeout(handle)
-      effect(message => whorl.run(message))
+      effect(message => whorl.send(message))
     }, 0)
   }
 
