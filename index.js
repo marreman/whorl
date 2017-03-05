@@ -5,43 +5,43 @@ const compose = require("compose-function")
  * Allows an update function to transform the
  * model based on the message sent through Hjelm.
  */
-function updateModel(hjelm) {
-  hjelm.model = hjelm.ops.updateModel(hjelm.message, hjelm.model)
+function updateModel(whorl) {
+  whorl.model = whorl.ops.updateModel(whorl.message, whorl.model)
 
-  return hjelm
+  return whorl
 }
 
 
 /**
  * Runs sid
  */
-function runEffects(hjelm) {
-  const effect = hjelm.ops.runEffects(hjelm.message)
+function runEffects(whorl) {
+  const effect = whorl.ops.runEffects(whorl.message)
 
   if (effect) {
     const handle = setTimeout(() => {
       clearTimeout(handle)
-      effect(message => hjelm.run(message))
+      effect(message => whorl.run(message))
     }, 0)
   }
 
-  return hjelm
+  return whorl
 }
 
 
 /**
  * Logs the Hjelm instance everytime a message is run.
  */
-function log(hjelm) {
-  console.log("MESSAGE:", hjelm.message)
-  console.log("MODEL:", hjelm.model)
+function log(whorl) {
+  console.log("MESSAGE:", whorl.message)
+  console.log("MODEL:", whorl.model)
 
-  return hjelm
+  return whorl
 }
 
 
-/** The Hjelm class */
-class Hjelm {
+/** The Whorl class */
+class Whorl {
 
   /**
    * Creates a Hjelm instance
@@ -63,5 +63,5 @@ class Hjelm {
 
 
 module.exports = (model, ops) => {
-  return new Hjelm(model, ops, [log, updateModel, runEffects])
+  return new Whorl(model, ops, [log, updateModel, runEffects])
 }
