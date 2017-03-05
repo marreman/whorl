@@ -9,6 +9,6 @@ const defaultBehaviors = [
   runEffects
 ]
 
-module.exports = (model, ops, behaviors = []) => {
-  return new Whorl(model, ops, behaviors.concat(defaultBehaviors))
+module.exports = (model, functions, behaviors = []) => {
+  return new Whorl(model, functions, behaviors.concat(defaultBehaviors))
 }

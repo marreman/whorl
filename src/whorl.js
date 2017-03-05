@@ -1,9 +1,9 @@
 const compose = require('compose-function')
 
 class Whorl {
-  constructor (model, ops, behaviors) {
+  constructor (model, functions, behaviors) {
     this.model = model
-    this.ops = ops
+    this.functions = functions
     this.runBehaviors = compose(...behaviors)
   }
 

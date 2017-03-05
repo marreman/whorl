@@ -2,7 +2,7 @@
  * Runs sid
  */
 function runEffects (whorl) {
-  const effect = whorl.ops.runEffects(whorl.message)
+  const effect = whorl.functions.runEffects(whorl.message)
 
   if (effect) {
     const handle = setTimeout(() => {

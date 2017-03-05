@@ -3,7 +3,7 @@
  * model based on the message sent through Whorl.
  */
 function updateModel (whorl) {
-  whorl.model = whorl.ops.updateModel(whorl.message, whorl.model)
+  whorl.model = whorl.functions.updateModel(whorl.message, whorl.model)
 
   return whorl
 }
