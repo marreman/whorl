@@ -5,9 +5,27 @@ const compose = require("compose-function")
  * Allows an update function to transform the
  * model based on the message sent through Hjelm.
  */
-function send(hjelm) {
-  return hjelm.program.model =
-    hjelm.program.update(hjelm.message, hjelm.program.model)
+function updateModel(hjelm) {
+  hjelm.model = hjelm.ops.updateModel(hjelm.message, hjelm.model)
+
+  return hjelm
+}
+
+
+/**
+ * Runs sid
+ */
+function runEffects(hjelm) {
+  const effect = hjelm.ops.runEffects(hjelm.message)
+
+  if (effect) {
+    const handle = setTimeout(() => {
+      clearTimeout(handle)
+      effect(message => hjelm.run(message))
+    }, 0)
+  }
+
+  return hjelm
 }
 
 
@@ -15,7 +33,9 @@ function send(hjelm) {
  * Logs the Hjelm instance everytime a message is run.
  */
 function log(hjelm) {
-  console.log(hjelm)
+  console.log("MESSAGE:", hjelm.message)
+  console.log("MODEL:", hjelm.model)
+
   return hjelm
 }
 
@@ -26,18 +46,22 @@ class Hjelm {
   /**
    * Creates a Hjelm instance
    */
-  constructor(program, middlewares) {
-    this.program = program
+  constructor(model, ops, middlewares) {
+    this.model = model
+    this.ops = ops
     this.runMiddlewares = compose(...middlewares)
   }
 
   run(message) {
-    return this.program.model =
-      this.runMiddlewares({ message, program: this.program })
+    this.message = message
+
+    const app = this.runMiddlewares(this)
+
+    return this.model = app.model
   }
 }
 
 
-module.exports = program => {
-  return new Hjelm(program, [send, log])
+module.exports = (model, ops) => {
+  return new Hjelm(model, ops, [log, updateModel, runEffects])
 }
