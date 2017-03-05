@@ -1,7 +1,7 @@
 /**
  * Runs sid
  */
-function runEffects(whorl) {
+function runEffects (whorl) {
   const effect = whorl.ops.runEffects(whorl.message)
 
   if (effect) {

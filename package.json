@@ -3,7 +3,13 @@
   "version": "1.0.0",
   "main": "src/index.js",
   "license": "MIT",
+  "scripts": {
+    "lint": "standard"
+  },
   "dependencies": {
     "compose-function": "^3.0.3"
+  },
+  "devDependencies": {
+    "standard": "^9.0.0"
   }
 }
