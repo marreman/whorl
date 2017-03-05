@@ -3,12 +3,12 @@ const log = require('./whorl-log')
 const updateModel = require('./whorl-update-model')
 const runEffects = require('./whorl-run-effects')
 
-const defaultMiddlewares = [
+const defaultBehaviors = [
   log,
   updateModel,
   runEffects
 ]
 
-module.exports = (model, ops, middlewares = []) => {
-  return new Whorl(model, ops, middlewares.concat(defaultMiddlewares))
+module.exports = (model, ops, behaviors = []) => {
+  return new Whorl(model, ops, behaviors.concat(defaultBehaviors))
 }
