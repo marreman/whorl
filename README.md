@@ -6,3 +6,5 @@ Example (built-in) `behaviors`:
 - `log`: Logs the `message` and `model` when a message is sent through
 - `updateModel`: As a reaction to messages, update the model
 - `runEffects`: Run asynchronous side-effects such as HTTP requests
+
+The [examples](https://github.com/marreman/whorl/tree/master/examples) is a recommended next read.
