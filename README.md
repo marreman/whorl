@@ -13,7 +13,7 @@ const app = whorl(model)
 app.run(new NoOp())
 ```
 
-Its behavior can be altered and enhanced by adding `operations`. Whorl has three `operations` bundled:
+Its behavior can be altered and enhanced by adding `behaviors`. Whorl has three `behaviors` bundled:
 - `log`: Logs the Whorl object everytime a message is passed through
 - `updateModel`: Allows the developer to, as a reaction to messages, change the model
 - `runEffects`: Runs asynchronous side-effects such as HTTP requests
