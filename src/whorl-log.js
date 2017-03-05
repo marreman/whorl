@@ -1,5 +1,5 @@
 /**
- * Logs the Hjelm instance everytime a message is run.
+ * Logs the Whorl instance everytime a message is run.
  */
 function log (whorl) {
   console.log('MESSAGE:', whorl.message)
