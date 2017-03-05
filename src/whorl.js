@@ -14,7 +14,7 @@ class Whorl {
 
     this.model = app.model
 
-    return this.model
+    return this
   }
 }
 

@@ -17,6 +17,9 @@ function update (msg, model) {
 }
 
 const app = whorl(model, { updateModel: update })
-const newModel = app.send(new Increment(5))
 
-console.log(newModel) // { count: 5 }
+console.log(app.model) // { count: 0 }
+
+app.send(new Increment(5))
+
+console.log(app.model) // { count: 5 }
